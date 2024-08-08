@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Добавить рецепт{% endblock %}
+
+{% block content %}
+    <main class="common">
+        <section class="outer-block">
+            <h1>Ваш новый рецепт</h1>
+
+            <form class="add-recipe-form">
+                <label for="recipe-name"></label>
+                <input class="recipe-name" type="text" id="recipe-name"
+                       placeholder="Название рецепта">
+                <div class="recipe-main-info">
+                    <div>
+                        <label for="quantity">Количество порций<br>
+                            <input class="main-info-field" type="text" id="quantity"
+                                   name="quantity dishes" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label for="time">Время приготовления<br>
+                            <input class="main-info-field" type="text" id="time" name="time"
+                                   required>
+                            минут
+                        </label>
+                    </div>
+                </div>
+                <div class="description-field">
+                    <p>
+                        Укажите ингридиенты, которые необходимы для приготовления и подачи данного
+                        блюда. Каждый ингридиент указывайте с новой строки.
+                    </p>
+                    <label for="ingredients"></label>
+                    <textarea class="big-text" name="steps" id="ingredients"
+                              placeholder="Ингридиенты"></textarea>
+                </div>
+                <div class="description-field">
+                    <p>
+                        Пошаговая иструкция поможет начинающим приготовить ваш рецепт.
+                        Мы рекомендуем
+                        разбивать рецепт минимум на 5 шагов. Каждый шаг указывайте с новой строки.
+                    </p>
+                    <label for="steps"></label>
+                    <textarea class="big-text" name="steps" id="steps"
+                              placeholder="Пошаговая инструкция"></textarea>
+                </div>
+                <div class="recipe-main-info choice">
+                    <label for="categories">Выберите категорию рецепта </label>
+                    <select id="categories" required>
+                        <option value="none"></option>
+                        <option value="cakes">Торты</option>
+                        <option value="pies">Пироги</option>
+                        <option value="cookies">Печенье</option>
+                        <option value="cupcakes">Капкейки</option>
+                        <option value="not_sweet_bakes">Несладкая выпечка</option>
+                    </select>
+                </div>
+                <div class="recipe-main-info add-recipe-image">
+                    <label for="recipe-image">Изображение рецепта</label>
+                    <input type="file" id="recipe-image" alt="image for recipe">
+                </div>
+                <input class="post send-button" type="submit" value="Отправить на модерацию">
+            </form>
+        </section>
+    </main>
+{% endblock %}

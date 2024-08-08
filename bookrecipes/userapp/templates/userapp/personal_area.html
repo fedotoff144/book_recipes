@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Личный кабинет{% endblock %}
+
+{% block content %}
+    <main class="common">
+        <section class="outer-block min-height">
+            <h1>Личный кабинет</h1>
+
+            <div class="personal-area">
+                <div class="around-img"><img src="../../../static/images/private_area.png"
+                                             alt="private area"></div>
+                <form class="form-pa">
+                    <label for="name"></label>
+                    <input class="personal-field" id="name" type="text" placeholder="Имя"
+                           name="name" required>
+                    <label for="email"></label>
+                    <input class="personal-field" id="email" type="email" placeholder="E-mail"
+                           name="email" required>
+                    <label for="birthday"></label>
+                    <input class="personal-field" id="birthday" type="date"
+                           placeholder="Дата рождения" name="birthday" required>
+                    <label for="gender"></label>
+                    <!--                <select class="personal-field" id="gender" required>-->
+                    <!--                    <option value="male">М</option>-->
+                    <!--                    <option value="female">Ж</option>-->
+                    <!--                </select>-->
+                    <input class="personal-field" id="gender" type="text" placeholder="Пол"
+                           name="gender" required>
+                    <!--                <input type="submit" value="Сохранить">-->
+                </form>
+            </div>
+
+            <div class="add-recipe-button">
+                <img src="../../../static/images/plus.png" alt="plus">
+                <a href="#">
+                    <div>ДОБАВИТЬ <br>РЕЦЕПТ</div>
+                </a>
+            </div>
+
+            <img class="fix-img-footer" src="../../../static/images/cookies_footer.png"
+                 alt="cookies">
+        </section>
+    </main>
+{% endblock %}

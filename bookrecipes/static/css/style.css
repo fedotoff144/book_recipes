@@ -76,7 +76,8 @@ header a {
 .reg-login {
     display: flex;
     flex-direction: column;
-    height: 678px;
+    /*height: 678px;*/
+    margin: 40px auto;
     align-items: center;
     justify-content: center;
 }
