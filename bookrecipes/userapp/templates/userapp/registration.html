@@ -7,17 +7,19 @@
         <div class="headline-reg">Регистрация</div>
         <div class="registration">
             <form class="form">
-                <label for="name"></label>
-                <input id="name" class="field" type="text" placeholder="Имя" name="name" required>
-                <label for="email"></label>
-                <input id="email" class="field" type="email" placeholder="E-mail" name="email"
-                       required>
-                <label for="password"></label>
-                <input id="password" class="field" type="password" placeholder="Пароль"
-                       name="password" required>
-                <label for="extra-password"></label>
-                <input id="extra-password" class="field" type="password"
-                       placeholder="Подтвердите пароль" name="password" required>
+                {% csrf_token %}
+                {{ form.as_div }}
+{#                <label for="name"></label>#}
+{#                <input id="name" class="field" type="text" placeholder="Имя" name="name" required>#}
+{#                <label for="email"></label>#}
+{#                <input id="email" class="field" type="email" placeholder="E-mail" name="email"#}
+{#                       required>#}
+{#                <label for="password1"></label>#}
+{#                <input id="password1" class="field" type="password" placeholder="Пароль"#}
+{#                       name="password" required>#}
+{#                <label for="password2"></label>#}
+{#                <input id="password2" class="field" type="password"#}
+{#                       placeholder="Подтвердите пароль" name="password" required>#}
                 <input class="post" type="submit" value="Зарегистрироваться">
             </form>
         </div>
