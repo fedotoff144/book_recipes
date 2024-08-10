@@ -26,8 +26,10 @@ def reg(request):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             password = form.cleaned_data['password1']
-            user = User(name=name, email=email, password=password)
+            username = email
+            user = User(name=name, email=email, password=password, username=username)
             user.save()
+            print(user)
             return render(request, 'recipeapp/main.html', {'form': form})
     else:
         form = UserRegistration()

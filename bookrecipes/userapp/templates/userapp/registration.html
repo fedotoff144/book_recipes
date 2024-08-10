@@ -6,7 +6,7 @@
     <main class="reg-login">
         <div class="headline-reg">Регистрация</div>
         <div class="registration">
-            <form class="form">
+            <form class="form" method="post">
                 {% csrf_token %}
                 {{ form.as_div }}
 {#                <label for="name"></label>#}
