@@ -8,7 +8,7 @@
         <div class="registration">
             <form class="form" method="post">
                 {% csrf_token %}
-                {{ form.as_div }}
+                {{ form }}
 {#                <label for="name"></label>#}
 {#                <input id="name" class="field" type="text" placeholder="Имя" name="name" required>#}
 {#                <label for="email"></label>#}
@@ -23,5 +23,6 @@
                 <input class="post" type="submit" value="Зарегистрироваться">
             </form>
         </div>
+
     </main>
 {% endblock %}

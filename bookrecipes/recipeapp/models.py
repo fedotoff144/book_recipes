@@ -7,6 +7,7 @@ from userapp.models import User
 
 class RecipeCategory(models.Model):
     category = models.CharField(max_length=50)
+    category_name = models.CharField(max_length=50)
 
 
 class Recipe(models.Model):

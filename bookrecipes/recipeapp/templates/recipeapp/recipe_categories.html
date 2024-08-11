@@ -9,28 +9,38 @@
 
             <div class="categories-preview">
                 <div class="categories-row">
-                    <div class="categories">
-                        <img src="../../../static/images/cakes.png" alt="recipe">
-                        <a href="#"><h4>Торты</h4></a>
-                    </div>
-                    <div class="categories">
-                        <img src="../../../static/images/rolls.png" alt="recipe">
-                        <a href="#"><h4>Пироги</h4></a>
-                    </div>
-                    <div class="categories">
-                        <img src="../../../static/images/cookies.png" alt="recipe">
-                        <a href="#"><h4>Печенье</h4></a>
-                    </div>
+                    <a href="{% url 'recipe_category/1' %}">
+                        <div class="categories">
+                            <img src="../../../static/images/cakes.png" alt="recipe">
+                            <h4>Торты</h4>
+                        </div>
+                    </a>
+                    <a href="{% url 'recipe_category/2' %}">
+                        <div class="categories">
+                            <img src="../../../static/images/pies.png" alt="recipe">
+                            <h4>Пироги</h4>
+                        </div>
+                    </a>
+                    <a href="{% url 'recipe_category/3' %}">
+                        <div class="categories">
+                            <img src="../../../static/images/cookies.png" alt="recipe">
+                            <h4>Печенье</h4>
+                        </div>
+                    </a>
                 </div>
                 <div class="categories-row">
-                    <div class="categories">
-                        <img src="../../../static/images/capcakes.png" alt="recipe">
-                        <a href="#"><h4>Капкейки</h4></a>
-                    </div>
-                    <div class="categories">
-                        <img src="../../../static/images/not_sweet_bakes.png" alt="recipe">
-                        <a href="#"><h4>Несладкая выпечка</h4></a>
-                    </div>
+                    <a href="{% url 'recipe_category/4' %}">
+                        <div class="categories">
+                            <img src="../../../static/images/capcakes.png" alt="recipe">
+                            <h4>Капкейки</h4>
+                        </div>
+                    </a>
+                    <a href="{% url 'recipe_category/5' %}">
+                        <div class="categories">
+                            <img src="../../../static/images/not_sweet_bakes.png" alt="recipe">
+                            <h4>Несладкая выпечка</h4>
+                        </div>
+                    </a>
                 </div>
             </div>
 

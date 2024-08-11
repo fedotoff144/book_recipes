@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import User
 from .forms import UserRegistration
@@ -25,12 +25,15 @@ def reg(request):
         if form.is_valid():
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
-            password = form.cleaned_data['password1']
-            username = email
-            user = User(name=name, email=email, password=password, username=username)
+            username = email.split('@')[0]
+            user = User(name=name, email=email, username=username)
             user.save()
             print(user)
             return render(request, 'recipeapp/main.html', {'form': form})
     else:
         form = UserRegistration()
     return render(request, 'userapp/registration.html', {'form': form})
+
+
+def login(request):
+    return render(request, 'recipeapp/main.html')

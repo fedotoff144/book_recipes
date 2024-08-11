@@ -24,7 +24,7 @@
         {% if user.is_authenticated %}
             <div><a href="#">Выход</a></div>
         {% else %}
-            <div><a href="#">Вход <br> Регистрация</a></div>
+            <a href="#"><div>Вход <br> Регистрация</div></a>
         {% endif %}
     </div>
 </header>
@@ -43,7 +43,7 @@
         Телефон: <br>
         8 (49232)1 -23-45
     </div>
-    <div><a href="#">Рецепты</a></div>
+    <div><a href="{% url 'recipe_categories' %}">Рецепты</a></div>
     <div><a href="{% url 'advertisement' %}">Рекламодателям</a></div>
     <div><a href="{% url 'rules' %}">Правила</a></div>
 </footer>
