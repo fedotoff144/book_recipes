@@ -6,13 +6,15 @@
     <main class="reg-login">
         <div class="headline-reg">Вход</div>
         <div class="registration">
-            <form class="form">
-                <label for="email"></label>
-                <input id="email" class="field" type="email" placeholder="E-mail" name="email"
-                       required>
-                <label for="password"></label>
-                <input id="password" class="field" type="password" placeholder="Пароль"
-                       name="password" required>
+            <form class="form" method="post">
+                {% csrf_token %}
+                {{ form }}
+{#                <label for="email"></label>#}
+{#                <input id="email" class="field" type="email" placeholder="E-mail" name="email"#}
+{#                       required>#}
+{#                <label for="password"></label>#}
+{#                <input id="password" class="field" type="password" placeholder="Пароль"#}
+{#                       name="password" required>#}
                 <input class="post" type="submit" value="Войти">
             </form>
         </div>

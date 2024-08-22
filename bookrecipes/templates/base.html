@@ -24,7 +24,7 @@
         {% if user.is_authenticated %}
             <div><a href="#">Выход</a></div>
         {% else %}
-            <a href="#"><div>Вход <br> Регистрация</div></a>
+            <a href="{% url 'login' %}"><div>Вход <br> Регистрация</div></a>
         {% endif %}
     </div>
 </header>

@@ -20,4 +20,5 @@ class User(AbstractUser):
                 f'email: {self.email}, '
                 f'gender: {self.gender if self.gender else "NULL"}, '
                 f'birthday: {self.birthday if self.birthday else "NULL"}, '
-                f'photo: {"YES" if self.photo else "NULL"}')
+                f'photo: {"YES" if self.photo else "NULL"}, '
+                f'password: {self.password}')

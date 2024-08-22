@@ -19,3 +19,10 @@ class UserRegistration(UserCreationForm):
     # gender = forms.CharField(max_length=1)
     # birthday = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     # photo = forms.ImageField()
+
+
+class UserLogin(forms.Form):
+    email = forms.EmailField(label='', widget=forms.EmailInput(
+        attrs={'class': 'field', 'placeholder': 'E-mail'}))
+    password = forms.CharField(label='', widget=forms.PasswordInput(
+        attrs={'class': 'field', 'placeholder': 'Пароль'}))

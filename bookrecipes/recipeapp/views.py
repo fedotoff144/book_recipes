@@ -7,7 +7,7 @@ from .models import Recipe
 # Create your views here.
 
 def index(request):
-    return render(request, 'recipeapp/main.html')
+    return render(request, 'recipeapp/index.html')
 
 
 def recipe_categories(request):
