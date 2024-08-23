@@ -11,7 +11,7 @@ class RecipeCategory(models.Model):
 
 
 class Recipe(models.Model):
-    name = models.CharField(max_length=100)
+    recipe_name = models.CharField(max_length=100)
     servings = models.ImageField()
     time = models.ImageField()
     description = models.TextField()

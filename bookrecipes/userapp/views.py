@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import authenticate
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest
 from django.urls import reverse
 
 from .models import User
@@ -10,7 +10,10 @@ from .forms import UserRegistration, UserLogin
 # Create your views here.
 
 
-def advertisement(request):
+def advertisement(request: HttpRequest):
+    # print(request.path)
+    # print(request.method)
+    # print(request.headers)
     return render(request, 'userapp/advertisement.html')
 
 
