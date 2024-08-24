@@ -11,6 +11,6 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         count = kwargs.get('count')
         for i in range(count):
-            user = User(name=f'Alex{i}', email=f'{i}example@.mail.com', gender='M',
-                        password=f'12345678', username=f'{i}example@.mail.com')
+            user = User(name=f'Alex{i}', email=f'{i}example@mail.com', gender='M',
+                        password=f'12345678', username=f'{i}example@mail.com')
             user.save()

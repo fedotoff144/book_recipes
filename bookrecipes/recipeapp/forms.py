@@ -7,6 +7,6 @@ class AddRecipe(forms.Form):
     time = forms.IntegerField()
     description = forms.CharField(max_length=500)
     photo = forms.ImageField()
-    user_id = forms.IntegerField()
-    recipe_category_id = forms.IntegerField()
+    user = forms.IntegerField()
+    recipe_category = forms.IntegerField()
 

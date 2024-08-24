@@ -16,9 +16,6 @@ class User(AbstractUser):
     # password = models.CharField(max_length=50)
 
     def __str__(self):
-        return (f'name: {self.name}, '
-                f'email: {self.email}, '
-                f'gender: {self.gender if self.gender else "NULL"}, '
-                f'birthday: {self.birthday if self.birthday else "NULL"}, '
-                f'photo: {"YES" if self.photo else "NULL"}, '
-                f'password: {self.password}')
+        return (f'User(pk={self.pk}, '
+                f'username: {self.username}, '
+                f'email: {self.email})')
