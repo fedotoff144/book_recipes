@@ -21,8 +21,8 @@ class UserRegistration(UserCreationForm):
     # photo = forms.ImageField()
 
 
-class UserLogin(forms.Form):
-    email = forms.EmailField(label='', widget=forms.EmailInput(
-        attrs={'class': 'field', 'placeholder': 'E-mail'}))
-    password = forms.CharField(label='', widget=forms.PasswordInput(
-        attrs={'class': 'field', 'placeholder': 'Пароль'}))
+# class UserLogin(forms.Form):
+#     email = forms.EmailField(label='', widget=forms.EmailInput(
+#         attrs={'class': 'field', 'placeholder': 'E-mail'}))
+#     password = forms.CharField(label='', widget=forms.PasswordInput(
+#         attrs={'class': 'field', 'placeholder': 'Пароль'}))
