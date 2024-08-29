@@ -22,9 +22,9 @@
     </div>
     <div class="login">
         {% if user.is_authenticated %}
-            <div><a href="{% url 'userapp:logout_view' %}">Выход</a></div>
+            <div><a href="{% url 'userapp:logout' %}">Выход</a></div>
         {% else %}
-            <a href="{% url 'userapp:login_view' %}"><div>Вход <br> Регистрация</div></a>
+            <a href="{% url 'userapp:login' %}"><div>Вход <br> Регистрация</div></a>
         {% endif %}
     </div>
 </header>

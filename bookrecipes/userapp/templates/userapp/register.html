@@ -10,15 +10,15 @@
                 {% csrf_token %}
                 {{ form }}
 {#                <label for="name"></label>#}
-{#                <input id="name" class="field" type="text" placeholder="Имя" name="name" required>#}
+{#                <input id="name" class="field" type="text" placeholder="Имя" name="{{ form.name }}" required>#}
 {#                <label for="email"></label>#}
-{#                <input id="email" class="field" type="email" placeholder="E-mail" name="email"#}
+{#                <input id="email" class="field" type="email" placeholder="E-mail" name="{{ form.email }}"#}
 {#                       required>#}
 {#                <label for="password1"></label>#}
 {#                <input id="password1" class="field" type="password" placeholder="Пароль"#}
-{#                       name="password" required>#}
+{#                       name="{{ form.password1 }}" required>#}
 {#                <label for="password2"></label>#}
-{#                <input id="password2" class="field" type="password"#}
+{#                <input id="{{ form.password2 }}" class="field" type="password"#}
 {#                       placeholder="Подтвердите пароль" name="password" required>#}
                 <input class="post" type="submit" value="Зарегистрироваться">
             </form>

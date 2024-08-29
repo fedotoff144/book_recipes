@@ -1,5 +1,13 @@
+from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
-from userapp.views import help_template, rules, advertisement, reg, login_view, logout_view
+from userapp.views import (help_template,
+                           rules,
+                           advertisement,
+                           register_view,
+                           # login_view,
+                           logout_view,
+                           profile,
+                           )
 
 app_name = 'userapp'
 
@@ -7,7 +15,16 @@ urlpatterns = [
     path('help/', help_template, name='help_template'),
     path('rules/', rules, name='rules'),
     path('advertisement/', advertisement, name='advertisement'),
-    path('reg/', reg, name='registration'),
-    path('login/', login_view, name='login_view'),
-    path('logout/', logout_view, name='logout_view'),
+    path('register/', register_view, name='register'),
+    # path('login/', login_view, name='login_view'),
+    path(
+        'login/',
+        LoginView.as_view(
+            template_name='userapp/login.html',
+            redirect_authenticated_user=True)
+        ,
+        name='login'
+    ),
+    path('logout/', logout_view, name='logout'),
+    path('profile/', profile, name='profile'),
 ]

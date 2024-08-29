@@ -50,8 +50,3 @@ class IngredientsAdmin(admin.ModelAdmin):
     # method for query optimization
     def get_queryset(self, request):
         return Ingredients.objects.select_related('recipe')
-
-# admin.site.register(RecipeCategory, RecipeCategoryAdmin)
-# admin.site.register(Recipe, RecipeAdmin)
-# admin.site.register(CookingSteps, CookingStepsAdmin)
-# admin.site.register(Ingredients, IngredientsAdmin)
