@@ -13,8 +13,8 @@ class User(AbstractUser):
     birthday = models.DateField(null=True, blank=True)
     photo = models.ImageField(upload_to='users_photo/', null=True, blank=True)
 
-    # USERNAME_FIELD = 'email'
-    # REQUIRED_FIELDS = ['username', 'password']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username', 'password']
 
     def __str__(self):
         return (f'User(pk={self.pk}, '

@@ -14,11 +14,11 @@
 <body>
 <header>
     <div class="menu">
-        <div><a href="#">Торты</a></div>
-        <div><a href="#">Пироги</a></div>
-        <div><a href="#">Печенье</a></div>
-        <div><a href="#">Капкейки</a></div>
-        <div><a href="#">Несладкая выпечка</a></div>
+        <div><a href="{% url 'recipeapp:recipe_category' category=1 %}">Торты</a></div>
+        <div><a href="{% url 'recipeapp:recipe_category' category=2 %}">Пироги</a></div>
+        <div><a href="{% url 'recipeapp:recipe_category' category=3 %}">Печенье</a></div>
+        <div><a href="{% url 'recipeapp:recipe_category' category=4 %}">Капкейки</a></div>
+        <div><a href="{% url 'recipeapp:recipe_category' category=5 %}">Несладкая выпечка</a></div>
     </div>
     <div class="login">
         {% if user.is_authenticated %}

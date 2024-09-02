@@ -76,8 +76,8 @@ header a {
 .reg-login {
     display: flex;
     flex-direction: column;
-    /*height: 678px;*/
-    margin: 40px auto;
+    height: 678px;
+    /*margin: 40px auto;*/
     align-items: center;
     justify-content: center;
 }
@@ -137,6 +137,12 @@ header a {
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
 }
 
+a.post {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
 /*end registration / login*/
 
 
@@ -165,7 +171,7 @@ header a {
 .common h4 {
     margin: 0;
     font-size: 32px;
-    color: black;
+    /*color: black;*/
 }
 
 /*main*/
