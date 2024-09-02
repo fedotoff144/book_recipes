@@ -1,9 +1,9 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import User
 
 
-class UserRegistration(UserCreationForm):
+class UserRegistrationForm(UserCreationForm):
     name = forms.CharField(max_length=50, required=True, label='',
                            widget=forms.TextInput(attrs={'class': 'field', 'placeholder': 'Имя'}))
     email = forms.EmailField(required=True, label='', widget=forms.EmailInput(
@@ -21,8 +21,13 @@ class UserRegistration(UserCreationForm):
     # photo = forms.ImageField()
 
 
-# class UserLogin(forms.Form):
-#     email = forms.EmailField(label='', widget=forms.EmailInput(
-#         attrs={'class': 'field', 'placeholder': 'E-mail'}))
-#     password = forms.CharField(label='', widget=forms.PasswordInput(
-#         attrs={'class': 'field', 'placeholder': 'Пароль'}))
+class UserLoginForm(AuthenticationForm):
+    # email = forms.EmailField(label='', widget=forms.EmailInput(
+    #     attrs={'class': 'field', 'placeholder': 'E-mail'}))
+    username = forms.CharField(label='', widget=forms.TextInput(
+        attrs={'class': 'field', 'placeholder': 'E-mail'}))
+    password = forms.CharField(label='', widget=forms.PasswordInput(
+        attrs={'class': 'field', 'placeholder': 'Пароль'}))
+    class Meta:
+        model = User
+        fields = ['username', 'password']

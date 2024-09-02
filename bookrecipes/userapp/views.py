@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpRequest
 # from django.urls import reverse
 
 from .models import User
-from .forms import UserRegistration
+from .forms import UserRegistrationForm, UserLoginForm
 
 
 # Create your views here.
@@ -24,13 +24,14 @@ def help_template(request):
 def rules(request):
     return render(request, 'userapp/rules.html')
 
+
 def profile(request):
     return render(request, 'userapp/profile.html')
 
 
 def register_view(request):
     if request.method == 'POST':
-        form = UserRegistration(request.POST)
+        form = UserRegistrationForm(request.POST)
         if form.is_valid():
             name = form.cleaned_data['name']
             password = form.cleaned_data['password1']
@@ -42,7 +43,7 @@ def register_view(request):
             login(request, user)
             return render(request, 'recipeapp/index.html', {'form': form})
     else:
-        form = UserRegistration()
+        form = UserRegistrationForm()
     return render(request, 'userapp/register.html', {'form': form})
 
 
@@ -64,6 +65,28 @@ def register_view(request):
 #         return redirect('recipeapp:index')
 #
 #     return render(request, 'userapp/login.html', {'error': 'User not found'})
+
+def login_view(request):
+    if request.method == 'POST':
+        form = UserLoginForm(request.POST)
+        username = request.POST['username']
+        password = request.POST['password']
+        # print(username, password)
+        if form.is_valid():
+            # user = User(**form.cleaned_data)
+            username = request.POST['username']
+            password = request.POST['password']
+            print(username, password)
+            user = authenticate(username=username, password=password)
+            if user:
+                login(request, user)
+        else:
+            print(form.errors)
+    else:
+        # form = UserLoginForm(request)
+        form = UserLoginForm()
+    context = {'form': form}
+    return render(request, 'userapp/login.html', context)
 
 
 def logout_view(request: HttpRequest):

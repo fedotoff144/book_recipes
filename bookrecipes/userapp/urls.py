@@ -4,7 +4,7 @@ from userapp.views import (help_template,
                            rules,
                            advertisement,
                            register_view,
-                           # login_view,
+                           login_view,
                            logout_view,
                            profile,
                            )
@@ -17,14 +17,15 @@ urlpatterns = [
     path('advertisement/', advertisement, name='advertisement'),
     path('register/', register_view, name='register'),
     # path('login/', login_view, name='login_view'),
-    path(
-        'login/',
-        LoginView.as_view(
-            template_name='userapp/login.html',
-            redirect_authenticated_user=True)
-        ,
-        name='login'
-    ),
+    # path(
+    #     'login/',
+    #     LoginView.as_view(
+    #         template_name='userapp/login.html',
+    #         redirect_authenticated_user=True)
+    #     ,
+    #     name='login'
+    # ),
+    path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('profile/', profile, name='profile'),
 ]
