@@ -1,10 +1,12 @@
+from lib2to3.fixes.fix_input import context
+
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, HttpRequest
 # from django.urls import reverse
 
 from .models import User
-from .forms import UserRegistrationForm, UserLoginForm
+from .forms import UserRegistrationForm, UserLoginForm, UserProfileForm
 
 
 # Create your views here.
@@ -26,7 +28,12 @@ def rules(request):
 
 
 def profile(request):
-    return render(request, 'userapp/profile.html')
+    # email = request.user.email
+    # user = User.objects.get(email=email)
+    form = UserProfileForm(data=request.user)
+    # print(form)
+    context = {'form': form}
+    return render(request, 'userapp/profile.html', context)
 
 
 def register_view(request):
@@ -39,7 +46,6 @@ def register_view(request):
             # username = email
             user = User(name=name, email=email, password=password)
             user.save()
-            print(user)
             login(request, user)
             return render(request, 'recipeapp/index.html', {'form': form})
     else:
@@ -55,7 +61,6 @@ def login_view(request):
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
             # print(username, password)
-            print(email, password)
             # user = authenticate(username=username, password=password)
             user = authenticate(email=email, password=password)
             if user:

@@ -65,6 +65,19 @@ header {
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
 }
 
+.login-active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-profile {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+
 header a {
     color: inherit;
 }
@@ -676,7 +689,7 @@ footer a {
     color: red;
 }
 
-.alert-success{
+.alert-success {
     font-size: 20px;
     color: forestgreen;
 }

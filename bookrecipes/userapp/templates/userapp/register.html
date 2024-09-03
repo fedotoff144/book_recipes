@@ -21,6 +21,7 @@
 {#                <input id="{{ form.password2 }}" class="field" type="password"#}
 {#                       placeholder="Подтвердите пароль" name="password" required>#}
                 <input class="post" type="submit" value="Зарегистрироваться">
+                <a class="post" href="{% url 'userapp:login' %}">Войти в личный кабинет</a>
             </form>
         </div>
 

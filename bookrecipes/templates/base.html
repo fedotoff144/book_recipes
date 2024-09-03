@@ -22,9 +22,17 @@
     </div>
     <div class="login">
         {% if user.is_authenticated %}
-            <div><a href="{% url 'userapp:logout' %}">Выход</a></div>
+{#            <div class="login-active"><a href="{% url 'userapp:logout' %}">Выход</a></div>#}
+            <div class="login-active">
+                <a class="icon-profile" href="{% url 'userapp:profile' %}">
+                    <img src="{% static 'images/icon_profile.svg' %}" alt="profile-icon">
+                </a>
+                <a href="{% url 'userapp:logout' %}">Выход</a>
+            </div>
         {% else %}
-            <a href="{% url 'userapp:login' %}"><div>Вход <br> Регистрация</div></a>
+            <a href="{% url 'userapp:login' %}">
+                <div>Вход <br> Регистрация</div>
+            </a>
         {% endif %}
     </div>
 </header>
