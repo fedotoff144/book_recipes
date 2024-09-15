@@ -1,8 +1,8 @@
 from lib2to3.fixes.fix_input import context
-
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
 # from django.urls import reverse
 
 from .models import User
@@ -28,10 +28,13 @@ def rules(request):
 
 
 def profile(request):
-    # email = request.user.email
-    # user = User.objects.get(email=email)
-    form = UserProfileForm(data=request.user)
-    # print(form)
+    if request.method == 'POST':
+        form = UserProfileForm(instance=request.user, data=request.POST, files=request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('userapp:profile'))
+    else:
+        form = UserProfileForm(instance=request.user)
     context = {'form': form}
     return render(request, 'userapp/profile.html', context)
 
@@ -43,8 +46,8 @@ def register_view(request):
             name = form.cleaned_data['name']
             password = form.cleaned_data['password1']
             email = form.cleaned_data['email']
-            # username = email
-            user = User(name=name, email=email, password=password)
+            username = email
+            user = User(username=username, name=name, email=email, password=password)
             user.save()
             login(request, user)
             return render(request, 'recipeapp/index.html', {'form': form})
@@ -57,18 +60,16 @@ def login_view(request):
     if request.method == 'POST':
         form = UserLoginForm(request.POST)
         if form.is_valid():
-            # username = form.cleaned_data['username']
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
-            # print(username, password)
-            # user = authenticate(username=username, password=password)
             user = authenticate(email=email, password=password)
             if user:
                 login(request, user)
                 return redirect('recipeapp:index')
     else:
         form = UserLoginForm()
-    return render(request, 'userapp/login.html', {'form': form})
+    context = {'form': form}
+    return render(request, 'userapp/login.html', context)
 
 
 def logout_view(request: HttpRequest):

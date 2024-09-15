@@ -22,7 +22,6 @@
     </div>
     <div class="login">
         {% if user.is_authenticated %}
-{#            <div class="login-active"><a href="{% url 'userapp:logout' %}">Выход</a></div>#}
             <div class="login-active">
                 <a class="icon-profile" href="{% url 'userapp:profile' %}">
                     <img src="{% static 'images/icon_profile.svg' %}" alt="profile-icon">
